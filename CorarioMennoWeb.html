@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<!-- Página web para proyectar los coros en la Iglesia Menonita de Teusaquillo
+    Desarrollada por Omar Baracaldo R.(pbaracal@uniandes.edu.co)con la asesoría de Vladimir Támara
+    Colaboradores en la base de datos: -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Selector de coros Menno</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bdcoros.js"></script>
+    <script type="text/javascript" src="js/corario.js"></script>
+    
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+</head>
+<body>
+    
+
+    <style type="text/css">
+        body{
+            font-family: "Futura", fantasy;
+            background-color: gray;
+        }
+        #tituloCoro{
+            position: absolute;
+            left: 45px;
+            top: 270px;
+            color: red;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            border-radius: 5px;
+        }
+        #letraCoro{
+            position: absolute;
+            left: 40px; 
+            top: 10px;
+            width: 1000px;
+            height: 223px;
+            overflow: scroll;
+            padding-right: 10px;
+            padding-left: 10px;
+            text-align: center;
+            background-color: white;
+            border-radius: 5px;
+            font-size: 48px;
+        }
+        #selCoro1{
+            position: absolute;
+            left: 50px;
+            top: 350px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro1{
+            position: absolute;
+            left: 62px;
+            top: 380px;
+            border-radius: 5px;
+        }
+        #selCoro2{
+            position: absolute;
+            left: 250px;
+            top: 350px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro2{
+            position: absolute;
+            left: 262px;
+            top: 380px;
+            border-radius: 5px;
+        }
+        #selCoro3{
+            position: absolute;
+            left: 450px;
+            top: 350px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro3{
+            position: absolute;
+            left: 462px;
+            top: 380px;
+            border-radius: 5px;
+        }
+        #selCoro4{
+            position: absolute;
+            left: 650px;
+            top: 350px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro4{
+            position: absolute;
+            left: 662px;
+            top: 380px;
+            border-radius: 5px;
+        }
+        #selCoro5{
+            position: absolute;
+            left: 850px;
+            top: 350px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro5{
+            position: absolute;
+            left: 862px;
+            top: 380px;
+            border-radius: 5px;
+        }
+        #selCoro6{
+            position: absolute;
+            left: 50px;
+            top: 430px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro6{
+            position: absolute;
+            left: 62px;
+            top: 460px;
+            border-radius: 5px;
+        }
+        #selCoro7{
+            position: absolute;
+            left: 250px;
+            top: 430px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro7{
+            position: absolute;
+            left: 262px;
+            top: 460px;
+            border-radius: 5px;
+        }
+        #selCoro8{
+            position: absolute;
+            left: 450px;
+            top: 430px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro8{
+            position: absolute;
+            left: 462px;
+            top: 460px;
+            border-radius: 5px;
+        }
+        #selCoro9{
+            position: absolute;
+            left: 650px;
+            top: 430px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro9{
+            position: absolute;
+            left: 662px;
+            top: 460px;
+            border-radius: 5px;
+        }
+        #selCoro10{
+            position: absolute;
+            left: 850px;
+            top: 430px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro10{
+            position: absolute;
+            left: 862px;
+            top: 460px;
+            border-radius: 5px;
+        }
+        #selCoro11{
+            position: absolute;
+            left: 50px;
+            top: 510px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro11{
+            position: absolute;
+            left: 62px;
+            top: 540px;
+            border-radius: 5px;
+        }
+        #selCoro12{
+            position: absolute;
+            left: 250px;
+            top: 510px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro12{
+            position: absolute;
+            left: 262px;
+            top: 540px;
+            border-radius: 5px;
+        }
+        #selCoro13{
+            position: absolute;
+            left: 450px;
+            top: 510px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro13{
+            position: absolute;
+            left: 462px;
+            top: 540px;
+            border-radius: 5px;
+        }
+        #selCoro14{
+            position: absolute;
+            left: 650px;
+            top: 510px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro14{
+            position: absolute;
+            left: 662px;
+            top: 540px;
+            border-radius: 5px;
+        }
+        #selCoro15{
+            position: absolute;
+            left: 850px;
+            top: 510px;
+            color: gray;
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        #coro15{
+            position: absolute;
+            left: 862px;
+            top: 540px;
+            border-radius: 5px;
+        }
+
+        #masCoro{
+            position: absolute;
+            left: 90px;
+            top: 600px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #menosCoro{
+            position: absolute;
+            left: 250px;
+            top: 600px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #pantallaCompleta{
+            position: absolute;
+            left: 900px;
+            top: 258px;
+            border-radius: 5px;
+        }
+    </style>
+<div><h4 id = "tituloCoro"></h4></div>
+<div><h1  id = "letraCoro"></h1></div>
+<button class="btn btn-default" id="pantallaCompleta" onclick="pantallaCompleta(document.documentElement);">Pantalla completa</button>
+
+<div id="selCoro1" class="ui-widget" style="display:none">
+  <input id="tags1" placeholder="Elija un coro" >
+</div>
+<button id="coro1" class="btn btn-primary" style="display:none">Mostrar coro 1</button>
+
+<div id="selCoro2" class="ui-widget" style="display:none">
+  <input id="tags2" placeholder="Elija un coro" >
+</div>
+<button id="coro2" class="btn btn-primary"  style="display:none">Mostrar coro 2</button>
+
+<div id="selCoro3" class="ui-widget" style="display:none">
+  <input id="tags3" placeholder="Elija un coro" >
+</div>
+<button id="coro3" class="btn btn-primary" style="display:none">Mostrar coro 3</button>
+
+<div id="selCoro4" class="ui-widget" style="display:none">
+  <input id="tags4" placeholder="Elija un coro" >
+</div>
+<button id="coro4" class="btn btn-primary" style="display:none">Mostrar coro 4</button>
+
+<div id="selCoro5" class="ui-widget" style="display:none">
+  <input id="tags5" placeholder="Elija un coro" >
+</div>
+<button id="coro5" class="btn btn-primary" style="display:none">Mostrar coro 5</button>
+
+<div id="selCoro6" class="ui-widget" style="display:none">
+  <input id="tags6" placeholder="Elija un coro" >
+</div>
+<button id="coro6" class="btn btn-primary" style="display:none">Mostrar coro 6</button>
+
+<div id="selCoro7" class="ui-widget" style="display:none">
+  <input id="tags7" placeholder="Elija un coro" >
+</div>
+<button id="coro7" class="btn btn-primary" style="display:none">Mostrar coro 7</button>
+
+<div id="selCoro8" class="ui-widget" style="display:none">
+  <input id="tags8" placeholder="Elija un coro" >
+</div>
+<button id="coro8" class="btn btn-primary" style="display:none">Mostrar coro 8</button>
+
+<div id="selCoro9" class="ui-widget" style="display:none">
+  <input id="tags9" placeholder="Elija un coro" >
+</div>
+<button id="coro9" class="btn btn-primary" style="display:none">Mostrar coro 9</button>
+
+<div id="selCoro10" class="ui-widget" style="display:none">
+  <input id="tags10" placeholder="Elija un coro" >
+</div>
+<button id="coro10" class="btn btn-primary" style="display:none">Mostrar coro 10</button>
+
+<div id="selCoro11" class="ui-widget" style="display:none">
+  <input id="tags11" placeholder="Elija un coro" >
+</div>
+<button id="coro11" class="btn btn-primary" style="display:none">Mostrar coro 11</button>
+
+<div id="selCoro12" class="ui-widget" style="display:none">
+  <input id="tags12" placeholder="Elija un coro" >
+</div>
+<button id="coro12" class="btn btn-primary" style="display:none">Mostrar coro 12</button>
+
+<div id="selCoro13" class="ui-widget" style="display:none">
+  <input id="tags13" placeholder="Elija un coro" >
+</div>
+<button id="coro13" class="btn btn-primary" style="display:none">Mostrar coro 13</button>
+
+<div id="selCoro14" class="ui-widget" style="display:none">
+  <input id="tags14" placeholder="Elija un coro" >
+</div>
+<button id="coro14" class="btn btn-primary" style="display:none">Mostrar coro 14</button>
+
+<div id="selCoro15" class="ui-widget" style="display:none">
+  <input id="tags15" placeholder="Elija un coro" >
+</div>
+<button id="coro15" class="btn btn-primary" style="display:none">Mostrar coro 15</button>
+
+<button id="masCoro" class="btn btn-success" onclick="mostrarBotones()">+ CORO</button>
+<button id="menosCoro" class="btn btn-danger" onclick="ocultarBotones()" style="display:none">- CORO</button>
+<script type="text/javascript">inicio();</script>
+</body>
+</html>
